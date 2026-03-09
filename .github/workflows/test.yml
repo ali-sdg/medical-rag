@@ -1,0 +1,41 @@
+
+name: Test Medical RAG Pipeline
+
+# when run?
+on:
+  push:
+
+    # when pushed to main
+    branches: [ main ]
+  pull_request:
+
+    #every time that pull req open
+    branches: [ main ] 
+
+jobs:
+  test:
+
+    # running on a linux server
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # 1 get the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2 install py
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      # 3 install libraries
+      - name: Install dependencies
+        run: |
+          pip install pymupdf langchain sentence-transformers chromadb pytest
+
+      # 4 run tests
+      - name: Run tests
+        run: |
+          pytest tests/ -v
