@@ -1,3 +1,5 @@
+
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def split_documents(documents):
@@ -18,8 +20,8 @@ def split_documents(documents):
         chunks = splitter.split_text(doc['text'])
 
         source = doc["source"]
-        print(f"\n file: {source}")
-        print(f" chunks count :  {len(chunks)}")
+        print("\n file:  " + source)
+        print(" chunks count :  " + str(len(chunks)))
 
         for i, chunk in enumerate(chunks):
             all_chunks.append({

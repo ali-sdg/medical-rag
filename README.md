@@ -1,5 +1,5 @@
 
-A production-ready **Retrieval-Augmented Generation (RAG)** system for medical documents. Ask questions about clinical guidelines and medical papers — get accurate, source-backed answers with zero hallucination.
+A production-ready **Retrieval-Augmented Generation (RAG)** system for medical documents. Ask questions about clinical guidelines and medical papers get accurate, source-backed answers with zero hallucination.
 
 ---
 
@@ -187,7 +187,3 @@ python3 test_evaluation.py
 - **Modular pipeline** — each component is independently testable and replaceable
 
 ---
-
-## License
-
-MIT License — feel free to use and adapt for your projects.
