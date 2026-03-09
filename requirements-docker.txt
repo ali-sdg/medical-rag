@@ -1,0 +1,9 @@
+pymupdf==1.24.5
+langchain
+langchain-text-splitters
+sentence-transformers
+chromadb
+fastapi
+uvicorn
+requests
+python-dotenv

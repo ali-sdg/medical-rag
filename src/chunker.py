@@ -17,8 +17,9 @@ def split_documents(documents):
 
         chunks = splitter.split_text(doc['text'])
 
-        print(f'\n file:  {doc['source']}')
-        print(f'\n chunks count :  {len('chunks')}')
+        source = doc["source"]
+        print(f"\n file: {source}")
+        print(f" chunks count :  {len(chunks)}")
 
         for i, chunk in enumerate(chunks):
             all_chunks.append({

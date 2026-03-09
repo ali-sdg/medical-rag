@@ -1,9 +1,11 @@
 import requests
 import json
+import os
+
 
 #local ollama addres 
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
 MODEL_NAME = "llama3.2:1b"
 
 
@@ -55,4 +57,5 @@ def ask_llm(prompt):
 
 
 
-    return answer
+    result = response.json()
+    return result["response"]

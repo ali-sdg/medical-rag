@@ -1,0 +1,42 @@
+
+services:
+
+  # first service: our service is RAG
+  api:
+
+  # build from this folder's Dockerfile
+    build: .
+
+    ports:
+      - "8000:8000"
+    volumes:
+
+    #share data folder
+      - ./data:/app/data 
+      #keep database
+      - ./chroma_db:/app/chroma_db
+    environment:
+
+    # ollama address
+      - OLLAMA_URL=http://ollama:11434/api/generate
+
+      #first run ollama
+      - ollama
+    restart: unless-stopped
+
+#2 ollama
+  ollama:
+
+  #ready image from docker HUb
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+
+    #connect container to local models
+      - /usr/share/ollama/.ollama:/root/.ollama
+    restart: unless-stopped
+
+# volume for keep ollama model
+volumes:
+  ollama_data:
